@@ -35,3 +35,19 @@
 .yy-fade-in { animation: yy-fade-left 1.2s ease both; }
 @keyframes yy-fade-left { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .yy-fade-in { animation: none; } }
+
+/* Intranet button in footer */
+
+/* ---- Shared footer: Intranet column between "Enlaces" and "Suscríbete", Libro de Reclamaciones icon under the social icons ---- */
+@media (min-width: 1025px) {
+	.elementor-element-24b762a3 > .elementor-container { flex-wrap: nowrap; }
+	.elementor-element-24b762a3 > .elementor-container > .elementor-column.elementor-element-7a64dfaa { width: 31%; }
+	.elementor-element-24b762a3 > .elementor-container > .elementor-column.elementor-element-4fde97bb { width: 19%; }
+	.elementor-element-24b762a3 > .elementor-container > .elementor-column.elementor-element-4fde97bb.yy-footer-intranet { width: 17%; }
+	.elementor-element-24b762a3 > .elementor-container > .elementor-column.elementor-element-2a02a77d { width: 33%; }
+}
+.yy-footer-libro { margin-top: 26px; }
+.yy-footer-libro a { display: inline-block; line-height: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); transition: transform .25s ease, box-shadow .25s ease; }
+.yy-footer-libro a:hover, .yy-footer-libro a:focus-visible { transform: translateY(-4px) scale(1.04); box-shadow: 0 10px 24px rgba(0, 0, 0, .5); outline: 3px solid #FFD402; outline-offset: 2px; }
+.yy-footer-libro img { display: block; width: 120px; height: auto; }
+@media (prefers-reduced-motion: reduce) { .yy-footer-libro a { transition: none; } .yy-footer-libro a:hover, .yy-footer-libro a:focus-visible { transform: none; } }

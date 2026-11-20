@@ -18,6 +18,7 @@
 		if (!el) {
 			el = document.createElement('p');
 			el.className = 'static-form-notice';
+			el.setAttribute('role', 'status');
 			form.appendChild(el);
 		}
 		el.textContent = text;

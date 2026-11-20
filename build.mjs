@@ -116,11 +116,12 @@ function render(tpl, vars, layouts) {
 
 /** Adds the "active" markup (Elementor nav-menu convention) to the menu entry matching this page. */
 function markActive(html, pagePath, elementorId) {
-  return html.replace(/<li class="([^"]*menu-item[^"]*)"><a href="\{\{root\}\}([^"]*)"([^>]*)>/g, (all, liClass, href, rest) => {
+  // The <li> may carry an id ("menu-item-64") before its class, as in the WordPress nav menu markup.
+  return html.replace(/<li((?: id="[^"]*")?) class="([^"]*menu-item[^"]*)"><a href="\{\{root\}\}([^"]*)"([^>]*)>/g, (all, liId, liClass, href, rest) => {
     if (href !== pagePath) return all;
     const extra = ` current-menu-item page_item${elementorId ? ` page-item-${elementorId}` : ''} current_page_item`;
     const attrs = rest.replace(/class="([^"]*)"/, (_, c) => `class="${c} elementor-item-active"`);
-    return `<li class="${liClass}${extra}"><a href="{{root}}${href}" aria-current="page"${attrs}>`;
+    return `<li${liId} class="${liClass}${extra}"><a href="{{root}}${href}" aria-current="page"${attrs}>`;
   });
 }
 
