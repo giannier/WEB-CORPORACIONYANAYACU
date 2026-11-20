@@ -23,7 +23,7 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 		<div class="claim-wong yy-libro-main">
 			<p class="yy-libro-intro">Registra aquí tu reclamación o queja. Completa los datos del formulario; los campos marcados con <span class="req" aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios. Atenderemos tu solicitud en un plazo no mayor a quince (15) días naturales.</p>
 
-			<form id="rt_form_libro" class="yy-libro-form" action="" method="post">
+			<form id="rt_form_libro" class="yy-libro-form" action="" method="post" data-fallback-email="{{site.email_reclamaciones}}">
 
 				<!-- 1. Consumer identification -->
 				<section class="yy-card" aria-labelledby="yy-h-consumidor">
@@ -246,7 +246,7 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 				<h2>¿Necesitas ayuda?</h2>
 				<p>Escríbenos y te orientamos para completar tu reclamo.</p>
 				<a class="yy-aside-link" href="https://wa.me/{{site.phone_wa}}?text={{site.whatsapp_text_uri}}" target="_blank" rel="noopener">WhatsApp {{site.phone}}</a>
-				<a class="yy-aside-link yy-aside-link--ghost" href="mailto:{{site.email}}">{{site.email}}</a>
+				<a class="yy-aside-link yy-aside-link--ghost" href="mailto:{{site.email_reclamaciones}}">{{site.email_reclamaciones}}</a>
 			</div>
 		</aside>
 

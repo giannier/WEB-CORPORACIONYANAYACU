@@ -31,7 +31,8 @@
 		e.preventDefault();
 		var url = endpointFor(form);
 		if (!url) {
-			notice(form, 'El formulario aún no está conectado. Escríbenos a comercial@corporacionyanayacu.com.', false);
+			var mail = form.getAttribute('data-fallback-email') || 'comercial@corporacionyanayacu.com';
+			notice(form, 'El formulario aún no está conectado. Escríbenos a ' + mail + '.', false);
 			return;
 		}
 		fetch(url, {method: 'POST', body: new FormData(form), headers: {Accept: 'application/json'}})
