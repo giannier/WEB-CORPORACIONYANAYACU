@@ -1,0 +1,37 @@
+/* Your own overrides go here. Loaded last, after all WordPress/Elementor styles. */
+
+/* ===== Home hero (Elementor section c65c17b, "SECCION 2026 ANTES DEL CAMBIO") ===== */
+.yy-hero { position: relative; overflow: hidden; min-height: 800px; display: flex; align-items: center; background: #00160E; }
+.yy-hero__slides, .yy-hero__slide { position: absolute; inset: 0; }
+.yy-hero__slide { background-size: cover; background-position: top center; opacity: 0; transition: opacity 1.2s ease; }
+.yy-hero__slide.is-active { opacity: 1; animation: yy-kenburns 9s ease-out forwards; }
+@keyframes yy-kenburns { from { transform: scale(1); } to { transform: scale(1.1); } }
+.yy-hero > .elementor-background-overlay { position: absolute; inset: 0; opacity: 1; z-index: 1;
+  background: linear-gradient(90deg, rgba(0,22,14,.6) 0%, rgba(0,22,14,.6) 35%, rgba(0,0,0,.33) 100%); }
+.yy-hero > .elementor-container { position: relative; z-index: 2; width: 100%; max-width: 1170px; margin: 0 auto; padding: 60px 0; }
+.yy-hero .elementor-element-15441a5e { width: 100%; max-width: 580px; }
+.yy-hero .elementor-element-15441a5e > .elementor-widget-wrap { background: #fff; border-radius: 10px; padding: 60px 40px; box-shadow: 0 10px 40px rgba(0,0,0,.2); }
+.yy-hero .jkit-heading .heading-title { font-family: 'Inter', 'Heebo', sans-serif; font-weight: 600; font-size: 52px; line-height: 1.05; margin: 0 0 24px; color: #00160E; }
+.yy-hero .jkit-heading .focus-title { color: #006943; }
+.yy-hero .elementor-widget-text-editor p { font-size: 15px; line-height: 1.6; color: #00160E; margin: 0 0 32px; }
+.yy-hero__actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.yy-hero__actions .elementor-button { background: #FFD402; color: #00160E; border-radius: 3px; padding: 18px 40px; font-weight: 500; text-decoration: underline; }
+.yy-hero__video { display: flex; align-items: center; gap: 14px; }
+.yy-hero .yy-hero__play, .yy-hero .yy-hero__play:hover, .yy-hero .yy-hero__play:focus { width: 56px; height: 56px; padding: 0; border-radius: 50%; border: 0; cursor: pointer; background: #006943; box-shadow: 0 0 0 6px rgba(0,105,67,.22); display: grid; place-items: center; }
+.yy-hero .yy-hero__play-icon { width: 0; height: 0; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent #FFD402; margin-left: 3px; background: none; }
+.yy-hero a.yy-hero__video-link, .yy-hero a.yy-hero__video-link:hover { color: #00160E; text-decoration: underline; font-weight: 500; font-size: 15px; }
+.yy-hero__play:focus-visible, .yy-hero__video-link:focus-visible, .yy-modal__close:focus-visible { outline: 3px solid #FFD402; outline-offset: 3px; }
+@media (max-width: 1024px) { .yy-hero { min-height: 640px; } .yy-hero > .elementor-container { padding: 40px; } }
+@media (max-width: 767px) { .yy-hero { min-height: 0; } .yy-hero > .elementor-container { padding: 20px; }
+  .yy-hero .elementor-element-15441a5e > .elementor-widget-wrap { padding: 28px 22px; } .yy-hero .jkit-heading .heading-title { font-size: 36px; } }
+@media (prefers-reduced-motion: reduce) { .yy-hero__slide.is-active { animation: none; } .yy-hero__slide { transition: none; } }
+/* Video modal */
+.yy-modal[hidden] { display: none; }
+.yy-modal { position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center; padding: 20px; }
+.yy-modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.8); }
+.yy-modal__box { position: relative; width: min(960px, 100%); }
+.yy-modal__video { width: 100%; max-height: 80vh; background: #000; border-radius: 8px; display: block; }
+.yy-modal__close { position: absolute; top: -42px; right: 0; background: none; border: 0; color: #fff; font-size: 34px; line-height: 1; cursor: pointer; }
+.yy-fade-in { animation: yy-fade-left 1.2s ease both; }
+@keyframes yy-fade-left { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .yy-fade-in { animation: none; } }

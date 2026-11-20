@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+
+# Local backups, not part of the site
+/COPORACION.zip
+/yanayacu-site/
+/.atl/
