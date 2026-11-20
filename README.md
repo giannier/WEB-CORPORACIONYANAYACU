@@ -42,9 +42,17 @@ Contact, newsletter and Libro de Reclamaciones were WordPress/PHP forms. There i
 - WordPress admin, REST API, search, comments (`wp-json`, `admin-ajax`, `xmlrpc` URLs are replaced by `#`).
 - The Intranet button points to the live external site `https://rrhh.corporacionyanayacu.com/login`.
 
-## Deploy (GitHub Pages)
+## Deploy (cPanel Git Version Control)
 
-Publish the contents of `dist/` (for example with a GitHub Actions workflow that runs `npm run build` and deploys `dist/`). `.gitignore` excludes the old WordPress files so only the clone is versioned.
+`dist/` is committed on purpose: cPanel only copies files, it does not run npm. `.cpanel.yml` copies `dist/` to `/home/corpor46/public_html/`.
+
+1. Once: cPanel > Git Version Control > Create > clone this repo (SSH with a deploy key, since it is private).
+2. Every change: edit `src/` > `npm run build` > commit (`src/` + `dist/`) > `git push`.
+3. cPanel > Git Version Control > Manage > Pull or Deploy > *Update from Remote*, then *Deploy HEAD Commit*.
+
+`.htaccess` and `robots.txt` live in `src/public/` and end up in the root of `dist/`. Enable the HTTPS redirect in `.htaccess` once SSL is active, and fill `url` in `src/site.json` for canonical links.
+
+Warning: if `public_html` still holds the old WordPress install, back it up first. Deploying copies over it and does not delete the old files.
 
 ## Re-importing from the live site
 

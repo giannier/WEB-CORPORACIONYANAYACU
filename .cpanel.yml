@@ -1,0 +1,8 @@
+# cPanel > Git Version Control > "Deploy HEAD Commit" runs these tasks.
+# dist/ is committed on purpose: cPanel only copies files, it does not run npm.
+# Workflow: edit src/ -> `npm run build` -> commit (src + dist) -> push -> deploy in cPanel.
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/corpor46/public_html/
+    # "dist/." (with the dot) also copies hidden files such as .htaccess.
+    - /bin/cp -R dist/. $DEPLOYPATH
