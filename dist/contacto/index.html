@@ -173,7 +173,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ul>
 </li>
 <li id="menu-item-62" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62"><a href="../marcas/index.html">Marcas</a></li>
-<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="../contacto/index.html">Contacto</a></li>
+<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61 current-menu-item page_item current_page_item"><a href="../contacto/index.html" aria-current="page">Contacto</a></li>
 </ul></div>
             <div class="jkit-nav-identity-panel">
                 <div class="jkit-nav-site-title"><a href="../index.html" class="jkit-nav-logo" aria-label="Home Link"><img loading="lazy" decoding="async" width="1486" height="517" src="../assets/site/wp-content/uploads/2026/02/yanayacu_web.png" class="attachment-full size-full" alt="" loading="lazy" srcset="../assets/site/wp-content/uploads/2026/02/yanayacu_web.png 1486w, ../assets/site/wp-content/uploads/2026/02/yanayacu_web-300x104.png 300w, ../assets/site/wp-content/uploads/2026/02/yanayacu_web-1024x356.png 1024w, ../assets/site/wp-content/uploads/2026/02/yanayacu_web-768x267.png 768w" sizes="auto, (max-width: 1486px) 100vw, 1486px" /></a></div>
@@ -320,14 +320,41 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 				<div class="elementor-widget-container">
 					 				</div>
 				</div>
-				<div class="elementor-element elementor-element-7f5bf87e elementor-widget elementor-widget-metform" data-id="7f5bf87e" data-element_type="widget" data-e-type="widget" data-widget_type="metform.default">
-					<div id="mf-response-props-id-" data-previous-steps-style="" data-editswitchopen="" data-response_type="alert" data-erroricon="fas fa-exclamation-triangle" data-successicon="fas fa-check" data-messageposition="top" class="   mf-scroll-top-no">
-		<div class="formpicker_warper formpicker_warper_editable" data-metform-formpicker-key="" >
-				
-			<div class="mf-widget-container">
-				Aún no se ha añadido contenido.			</div>
-		</div>
-		</div>				</div>
+				<div class="elementor-element elementor-element-7f5bf87e elementor-widget yy-contact-widget" data-id="7f5bf87e">
+					<form class="yy-contact-form" id="yy_contact_form" action="" method="post" data-whatsapp="51943704298">
+						<div class="yy-cf-row">
+							<div class="yy-cf-field">
+								<label for="cf_nombre">Nombre completo <span aria-hidden="true">*</span></label>
+								<input type="text" id="cf_nombre" name="nombre" autocomplete="name" required placeholder="Tu nombre">
+							</div>
+							<div class="yy-cf-field">
+								<label for="cf_telefono">Teléfono / WhatsApp</label>
+								<input type="tel" id="cf_telefono" name="telefono" autocomplete="tel" placeholder="+51 999 999 999">
+							</div>
+						</div>
+						<div class="yy-cf-row">
+							<div class="yy-cf-field">
+								<label for="cf_correo">Correo electrónico <span aria-hidden="true">*</span></label>
+								<input type="email" id="cf_correo" name="correo" autocomplete="email" required placeholder="tucorreo@ejemplo.com">
+							</div>
+							<div class="yy-cf-field">
+								<label for="cf_servicio">Servicio de interés</label>
+								<select id="cf_servicio" name="servicio">
+									<option value="">Selecciona una opción</option>
+									<option>Agro</option>
+									<option>Construcción</option>
+									<option>Servicios Generales</option>
+									<option>Otro</option>
+								</select>
+							</div>
+						</div>
+						<div class="yy-cf-field">
+							<label for="cf_mensaje">Mensaje <span aria-hidden="true">*</span></label>
+							<textarea id="cf_mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto"></textarea>
+						</div>
+						<button type="submit" class="yy-cf-submit">Enviar mensaje</button>
+					</form>
+				</div>
 					</div>
 		</div>
 					</div>

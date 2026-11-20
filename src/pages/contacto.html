@@ -112,14 +112,41 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 				<div class="elementor-widget-container">
 					 				</div>
 				</div>
-				<div class="elementor-element elementor-element-7f5bf87e elementor-widget elementor-widget-metform" data-id="7f5bf87e" data-element_type="widget" data-e-type="widget" data-widget_type="metform.default">
-					<div id="mf-response-props-id-" data-previous-steps-style="" data-editswitchopen="" data-response_type="alert" data-erroricon="fas fa-exclamation-triangle" data-successicon="fas fa-check" data-messageposition="top" class="   mf-scroll-top-no">
-		<div class="formpicker_warper formpicker_warper_editable" data-metform-formpicker-key="" >
-				
-			<div class="mf-widget-container">
-				Aún no se ha añadido contenido.			</div>
-		</div>
-		</div>				</div>
+				<div class="elementor-element elementor-element-7f5bf87e elementor-widget yy-contact-widget" data-id="7f5bf87e">
+					<form class="yy-contact-form" id="yy_contact_form" action="" method="post" data-whatsapp="{{site.phone_wa}}">
+						<div class="yy-cf-row">
+							<div class="yy-cf-field">
+								<label for="cf_nombre">Nombre completo <span aria-hidden="true">*</span></label>
+								<input type="text" id="cf_nombre" name="nombre" autocomplete="name" required placeholder="Tu nombre">
+							</div>
+							<div class="yy-cf-field">
+								<label for="cf_telefono">Teléfono / WhatsApp</label>
+								<input type="tel" id="cf_telefono" name="telefono" autocomplete="tel" placeholder="+51 999 999 999">
+							</div>
+						</div>
+						<div class="yy-cf-row">
+							<div class="yy-cf-field">
+								<label for="cf_correo">Correo electrónico <span aria-hidden="true">*</span></label>
+								<input type="email" id="cf_correo" name="correo" autocomplete="email" required placeholder="tucorreo@ejemplo.com">
+							</div>
+							<div class="yy-cf-field">
+								<label for="cf_servicio">Servicio de interés</label>
+								<select id="cf_servicio" name="servicio">
+									<option value="">Selecciona una opción</option>
+									<option>Agro</option>
+									<option>Construcción</option>
+									<option>Servicios Generales</option>
+									<option>Otro</option>
+								</select>
+							</div>
+						</div>
+						<div class="yy-cf-field">
+							<label for="cf_mensaje">Mensaje <span aria-hidden="true">*</span></label>
+							<textarea id="cf_mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto"></textarea>
+						</div>
+						<button type="submit" class="yy-cf-submit">Enviar mensaje</button>
+					</form>
+				</div>
 					</div>
 		</div>
 					</div>

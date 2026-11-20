@@ -30,6 +30,17 @@
 		if (!(form instanceof HTMLFormElement)) return;
 		e.preventDefault();
 		var url = endpointFor(form);
+		if (!url && form.getAttribute('data-whatsapp')) {
+			// No backend: hand the message over to WhatsApp (number set in site.json -> phone_wa).
+			var data = new FormData(form), lines = ['Hola, quisiera más información sobre sus servicios.'];
+			[['nombre', 'Nombre'], ['telefono', 'Teléfono'], ['correo', 'Correo'], ['servicio', 'Servicio'], ['mensaje', 'Mensaje']].forEach(function (f) {
+				var v = (data.get(f[0]) || '').toString().trim();
+				if (v) lines.push(f[1] + ': ' + v);
+			});
+			window.open('https://wa.me/' + form.getAttribute('data-whatsapp') + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+			notice(form, 'Te llevamos a WhatsApp para enviar tu mensaje.', true);
+			return;
+		}
 		if (!url) {
 			var mail = form.getAttribute('data-fallback-email') || 'comercial@corporacionyanayacu.com';
 			notice(form, 'El formulario aún no está conectado. Escríbenos a ' + mail + '.', false);

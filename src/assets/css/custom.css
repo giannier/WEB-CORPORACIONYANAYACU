@@ -51,3 +51,29 @@
 .yy-footer-libro a:hover, .yy-footer-libro a:focus-visible { transform: translateY(-4px) scale(1.04); box-shadow: 0 10px 24px rgba(0, 0, 0, .5); outline: 3px solid #FFD402; outline-offset: 2px; }
 .yy-footer-libro img { display: block; width: 120px; height: auto; }
 @media (prefers-reduced-motion: reduce) { .yy-footer-libro a { transition: none; } .yy-footer-libro a:hover, .yy-footer-libro a:focus-visible { transform: none; } }
+
+/* ---- Contacto: info cards. The long e-mail used to stretch its card and push the next one. ---- */
+.elementor-element-41eecbc1 > .elementor-container > .elementor-column { min-width: 0; }
+.elementor-element-41eecbc1 .jkit-icon-box .icon-box-description { overflow-wrap: anywhere; word-break: break-word; padding: 0 14px; font-size: 15px; line-height: 1.5; }
+.elementor-element-41eecbc1 .jkit-icon-box .icon-box-description a { color: inherit; }
+
+/* ---- Contacto: contact form (replaces the MetForm plugin, which needs PHP) ---- */
+.yy-contact-form { display: grid; gap: 16px; margin-top: 8px; }
+.yy-cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.yy-cf-field label { display: block; margin: 0 0 6px; font: 600 14px/1.35 Inter, sans-serif; color: #00160E; }
+.yy-cf-field label span { color: #c62828; }
+.yy-cf-field :is(input, select, textarea) { width: 100%; box-sizing: border-box; padding: 13px 14px; border: 1px solid #cfd8d3; border-radius: 6px; background: #fff; font: 400 15px/1.4 Inter, sans-serif; color: #00160E; transition: border-color .2s, box-shadow .2s; }
+.yy-cf-field textarea { resize: vertical; min-height: 120px; }
+.yy-cf-field :is(input, select, textarea):hover { border-color: #9fb0a8; }
+.yy-cf-field :is(input, select, textarea):focus { outline: none; border-color: #006943; box-shadow: 0 0 0 3px rgba(0, 105, 67, .18); }
+.yy-cf-submit { justify-self: start; padding: 15px 36px; border: 0; border-radius: 4px; background: #FFD402; color: #00160E; font: 600 15px/1 Inter, sans-serif; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.yy-cf-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, .15); }
+.yy-cf-submit:focus-visible { outline: 3px solid #006943; outline-offset: 3px; }
+.yy-contact-form .static-form-notice { margin: 0; font: 500 14px/1.5 Inter, sans-serif; }
+@media (max-width: 767px) { .yy-cf-row { grid-template-columns: 1fr; } }
+
+/* ---- Footer newsletter: input and "Enviar" side by side with a gap (they were stacked and touching) ---- */
+.elementor-element-24b762a3 .jkit-form-wrapper.email-form { display: flex; align-items: stretch; flex-wrap: wrap; gap: 10px; }
+.elementor-element-24b762a3 .jkit-form-wrapper.email-form .jkit-mailchimp-email { flex: 1 1 200px; min-width: 0; margin: 0; }
+.elementor-element-24b762a3 .jkit-form-wrapper.email-form .jkit-submit-input-holder { flex: 0 0 auto; margin: 0; }
+.elementor-element-24b762a3 .jkit-form-wrapper.email-form .jkit-mailchimp-submit { height: 100%; margin: 0; }
