@@ -5,3 +5,17 @@ node_modules/
 /COPORACION.zip
 /yanayacu-site/
 /.atl/
+
+# cPanel clones this repo inside public_html and "Deploy" copies dist/ into the repo root.
+# Ignore those copies (root-anchored) so the server working tree stays clean and deploy is not blocked.
+/index.html
+/assets/
+/agro/
+/construccion/
+/contacto/
+/libro-de-reclamaciones/
+/marcas/
+/nosotros/
+/servicios-generales/
+/robots.txt
+/.htaccess
