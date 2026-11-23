@@ -1,6 +1,8 @@
 {
   "name": "Corporación Yanayacu",
-  "url": "",
+  "url": "https://corporacionyanayacu.com",
+  "og_image": "assets/img/og-image.jpg",
+  "ga4_id": "",
   "forms": {
     "contact": "",
     "newsletter": "",

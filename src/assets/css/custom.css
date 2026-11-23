@@ -84,3 +84,15 @@
 @media (max-width: 1100px) { .yy-hero__badge img { width: 300px; } }
 @media (max-width: 1024px) { .yy-hero__badge { top: auto; left: auto; right: 40px; bottom: 32px; transform: none; } .yy-hero__badge img { width: 220px; } }
 @media (max-width: 767px) { .yy-hero__badge { position: static; padding: 0 20px 24px; } .yy-hero__badge img { width: 170px; } }
+
+/* ---- 404 page ---- */
+.yy-404 { padding: 96px 20px 110px; text-align: center; background: #fff; }
+.yy-404__inner { max-width: 640px; margin: 0 auto; }
+.yy-404__code { margin: 0 0 4px; font: 800 clamp(72px, 14vw, 140px)/1 Heebo, Inter, sans-serif; color: #006943; letter-spacing: -2px; }
+.yy-404 h1 { margin: 0 0 16px; font-size: clamp(26px, 4vw, 38px); }
+.yy-404 p { margin: 0 0 28px; font: 400 17px/1.6 Inter, sans-serif; color: #00160E; }
+.yy-404__actions { display: flex; flex-wrap: wrap; gap: 16px 24px; justify-content: center; align-items: center; }
+.yy-404__btn { display: inline-block; padding: 16px 36px; border-radius: 4px; background: #FFD402; color: #00160E; font: 600 15px/1 Inter, sans-serif; text-decoration: none; }
+.yy-404__btn:hover { box-shadow: 0 6px 16px rgba(0, 0, 0, .15); transform: translateY(-2px); }
+.yy-404__link { color: #006943; font: 600 15px/1 Inter, sans-serif; text-decoration: underline; }
+.yy-404__btn:focus-visible, .yy-404__link:focus-visible { outline: 3px solid #006943; outline-offset: 3px; }

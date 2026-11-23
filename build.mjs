@@ -55,6 +55,12 @@ function copyDir(src, dest) {
   return copied;
 }
 
+/** Removes empty directories left behind after stale files are pruned. */
+function pruneEmptyDirs(dir, isRoot = true) {
+  for (const e of fs.readdirSync(dir, {withFileTypes: true})) if (e.isDirectory()) pruneEmptyDirs(path.join(dir, e.name), false);
+  if (!isRoot && fs.readdirSync(dir).length === 0) fs.rmdirSync(dir);
+}
+
 /** Removes files in dest that no longer exist in src (keeps dist/ in sync). */
 function pruneDir(src, dest) {
   for (const file of listFiles(dest)) {
@@ -138,6 +144,7 @@ function build() {
 
   fs.mkdirSync(DIST, {recursive: true});
   const written = new Set();
+  const sitemap = [];
   const pagesDir = path.join(SRC, 'pages');
   let pageCount = 0;
 
@@ -147,11 +154,14 @@ function build() {
     const slots = parseSlots(body);
 
     // Output path: front matter "path" wins ("" = home, "nosotros/" = dist/nosotros/index.html)
-    let pagePath = 'path' in data ? data.path : (rel === 'index.html' ? '' : rel.replace(/\.html$/, '/'));
+    // "output: 404.html" writes dist/404.html instead of dist/<path>/index.html (root-level file, depth 0).
+    const outputFile = data.output || '';
+    let pagePath = outputFile ? '' : ('path' in data ? data.path : (rel === 'index.html' ? '' : rel.replace(/\.html$/, '/')));
     pagePath = pagePath.replace(/^\/+/, '');
     if (pagePath && !pagePath.endsWith('/')) pagePath += '/';
     const depth = pagePath ? pagePath.split('/').filter(Boolean).length : 0;
-    const root = depth === 0 ? './' : '../'.repeat(depth);
+    // Output files such as 404.html are served from any URL depth, so they use root-absolute paths.
+    const root = outputFile ? '/' : (depth === 0 ? './' : '../'.repeat(depth));
 
     const layoutName = data.layout || 'base';
     if (!layouts[layoutName]) throw new Error(`${rel}: missing layout "${layoutName}"`);
@@ -168,8 +178,12 @@ function build() {
       path: pagePath,
       title,
       title_uri: encodeURIComponent(title),
+      title_attr: escAttr(title),
       description: escAttr(data.description || ''),
-      canonical: site.url ? site.url.replace(/\/+$/, '') + '/' + pagePath : '',
+      // Noindex pages (404) get no canonical and are left out of the sitemap.
+      canonical: site.url && !truthy(data.noindex) ? site.url.replace(/\/+$/, '') + '/' + pagePath : '',
+      noindex: truthy(data.noindex) ? 'true' : '',
+      og_image: site.og_image ? (site.url ? site.url.replace(/\/+$/, '') + '/' : root) + site.og_image : '',
       elementor_id: elementorId,
       wrap_open: elementorId ? `<div data-elementor-type="wp-page" data-elementor-id="${elementorId}" class="elementor elementor-${elementorId}" data-elementor-post-type="page">` : '',
       wrap_close: elementorId ? '</div>' : '',
@@ -190,11 +204,25 @@ function build() {
     // Make internal page links explicit (./agro/ -> ./agro/index.html) so navigation also works via file:// without a server.
     html = html.replace(/(<a\b[^>]*?\shref=")((?:\.\.?\/)(?:[^"#?]*\/)?)((?:[#?][^"]*)?")/g, '$1$2index.html$3');
 
-    const outFile = path.join(DIST, pagePath, 'index.html');
+    const outFile = outputFile ? path.join(DIST, outputFile) : path.join(DIST, pagePath, 'index.html');
     fs.mkdirSync(path.dirname(outFile), {recursive: true});
     fs.writeFileSync(outFile, html);
     written.add(path.resolve(outFile));
     pageCount++;
+
+    if (!truthy(data.noindex) && site.url) {
+      // lastmod = newest mtime among the page source, the shared layouts and site.json
+      const sources = [file, path.join(SRC, 'site.json'), ...listFiles(path.join(SRC, 'layouts'))].filter(exists);
+      const newest = Math.max(...sources.map(s => fs.statSync(s).mtimeMs));
+      sitemap.push({loc: site.url.replace(/\/+$/, '') + '/' + pagePath, lastmod: new Date(newest).toISOString().slice(0, 10)});
+    }
+  }
+
+  if (sitemap.length) {
+    sitemap.sort((a, b) => a.loc.length - b.loc.length || a.loc.localeCompare(b.loc));
+    const xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      ...sitemap.map(u => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`), '</urlset>', ''].join('\n');
+    fs.writeFileSync(path.join(DIST, 'sitemap.xml'), xml);
   }
 
   // Remove stale pages from dist (html only), then sync assets
@@ -206,6 +234,7 @@ function build() {
   pruneDir(assetsSrc, path.join(DIST, 'assets'));
   // src/public/** goes to the root of dist/ (.htaccess, robots.txt, ...)
   copyDir(path.join(SRC, 'public'), DIST);
+  pruneEmptyDirs(DIST);
 
   console.log(`[build] ${pageCount} pages, ${copied} assets copied, ${Date.now() - t0} ms`);
 }
@@ -238,7 +267,11 @@ function serve(port) {
       if (!url.endsWith('/')) { res.writeHead(301, {location: url + '/'}); return res.end(); }
       file = path.join(file, 'index.html');
     }
-    if (!exists(file)) { res.writeHead(404, {'content-type': 'text/plain'}); return res.end('404 Not found: ' + url); }
+    if (!exists(file)) {
+      const page404 = path.join(DIST, '404.html');
+      if (exists(page404)) { res.writeHead(404, {'content-type': 'text/html; charset=utf-8'}); return res.end(read(page404)); }
+      res.writeHead(404, {'content-type': 'text/plain'}); return res.end('404 Not found: ' + url);
+    }
     const type = MIME[path.extname(file).toLowerCase()] || 'application/octet-stream';
     res.writeHead(200, {'content-type': type, 'cache-control': 'no-store'});
     if (type.startsWith('text/html')) return res.end(read(file).replace('</body>', RELOAD_SNIPPET + '</body>'));

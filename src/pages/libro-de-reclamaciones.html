@@ -1,6 +1,6 @@
 ---
-title: Libro de Reclamaciones – Corporación Yanayacu
-description: Registra tu reclamación o queja en el Libro de Reclamaciones de Corporación Yanayacu.
+title: Libro de Reclamaciones | Corporación Yanayacu
+description: Registra tu reclamación o queja en el Libro de Reclamaciones virtual de Corporación Yanayacu. Respondemos en un plazo máximo de 15 días naturales.
 body_class: wp-singular page-template page-template-elementor_canvas page page-id-479 wp-embed-responsive wp-theme-hello-elementor jkit-color-scheme hello-elementor-default elementor-default elementor-template-canvas elementor-kit-32 elementor-page elementor-page-479
 ---
 <main id="content" class="yy-libro">
@@ -8,7 +8,7 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 <section class="yy-libro-hero" aria-labelledby="yy-libro-title">
 	<div class="yy-libro-hero__inner">
 		<h1 id="yy-libro-title">Libro de Reclamaciones</h1>
-		<nav class="yy-breadcrumb" aria-label="Migas de pan">
+		<nav class="yy-breadcrumb" aria-label="Ruta de navegación">
 			<ol>
 				<li><a href="{{root}}">Inicio</a></li>
 				<li aria-current="page">Libro de Reclamaciones</li>
@@ -47,9 +47,9 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 							<input type="text" id="materno" name="materno" class="required" placeholder="Segundo apellido" required>
 						</div>
 						<div class="yy-field">
-							<label for="tipo_doc">Tipo de documentación <span class="req" aria-hidden="true">*</span></label>
+							<label for="tipo_doc">Tipo de documento <span class="req" aria-hidden="true">*</span></label>
 							<select id="tipo_doc" name="tipo_doc" class="required" required>
-								<option value="">Selección de documentación</option>
+								<option value="">Selecciona un documento</option>
 								<option value="1">DNI</option>
 								<option value="2">CE</option>
 								<option value="3">Pasaporte</option>
@@ -57,8 +57,8 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 							</select>
 						</div>
 						<div class="yy-field">
-							<label for="nro_doc">Número de documentación <span class="req" aria-hidden="true">*</span></label>
-							<input type="text" id="nro_doc" name="nro_doc" class="required" placeholder="Número de documentación" inputmode="numeric" required>
+							<label for="nro_doc">Número de documento <span class="req" aria-hidden="true">*</span></label>
+							<input type="text" id="nro_doc" name="nro_doc" class="required" placeholder="Número de documento" inputmode="numeric" required>
 						</div>
 						<div class="yy-field">
 							<label for="cel">Celular <span class="req" aria-hidden="true">*</span></label>
@@ -67,20 +67,20 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 						<div class="yy-field">
 							<label for="dep">Departamento <span class="req" aria-hidden="true">*</span></label>
 							<select id="dep" name="dep" class="required" required>
-								<option value="">Seleccionar departamento</option><option value="1">AMAZONAS</option><option value="2">ANCASH</option><option value="3">APURIMAC</option><option value="4">AREQUIPA</option><option value="5">AYACUCHO</option><option value="6">CAJAMARCA</option><option value="7">CALLAO</option><option value="8">CUSCO</option><option value="9">HUANCAVELICA</option><option value="10">HUANUCO</option><option value="11">ICA</option><option value="12">JUNIN</option><option value="13">LA LIBERTAD</option><option value="14">LAMBAYEQUE</option><option value="15">LIMA</option><option value="16">LORETO</option><option value="17">MADRE DE DIOS</option><option value="18">MOQUEGUA</option><option value="19">PASCO</option><option value="20">PIURA</option><option value="21">PUNO</option><option value="22">SAN MARTIN</option><option value="23">TACNA</option><option value="24">TUMBES</option><option value="25">UCAYALI</option>
+								<option value="">Selecciona un departamento</option><option value="1">AMAZONAS</option><option value="2">ÁNCASH</option><option value="3">APURÍMAC</option><option value="4">AREQUIPA</option><option value="5">AYACUCHO</option><option value="6">CAJAMARCA</option><option value="7">CALLAO</option><option value="8">CUSCO</option><option value="9">HUANCAVELICA</option><option value="10">HUÁNUCO</option><option value="11">ICA</option><option value="12">JUNÍN</option><option value="13">LA LIBERTAD</option><option value="14">LAMBAYEQUE</option><option value="15">LIMA</option><option value="16">LORETO</option><option value="17">MADRE DE DIOS</option><option value="18">MOQUEGUA</option><option value="19">PASCO</option><option value="20">PIURA</option><option value="21">PUNO</option><option value="22">SAN MARTÍN</option><option value="23">TACNA</option><option value="24">TUMBES</option><option value="25">UCAYALI</option>
 							</select>
 						</div>
 						<div class="yy-field">
 							<label for="prov">Provincia <span class="req" aria-hidden="true">*</span></label>
 							<!-- No backend: libro.js turns this empty select into a text input (see README). -->
 							<select id="prov" name="prov" class="required" required>
-								<option value="">Seleccionar de provincia</option>
+								<option value="">Selecciona una provincia</option>
 							</select>
 						</div>
 						<div class="yy-field">
 							<label for="dist">Distrito <span class="req" aria-hidden="true">*</span></label>
 							<select id="dist" name="dist" class="required" required>
-								<option value="">Seleccionar de distrito</option>
+								<option value="">Selecciona un distrito</option>
 							</select>
 						</div>
 						<div class="yy-field">
@@ -104,7 +104,7 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 					</fieldset>
 
 					<div class="yy-tutor" id="tutor_block" hidden>
-						<h3 id="title_tutor">Padre / Madre / Tutor</h3>
+						<h3 id="title_tutor">Padre, madre o tutor</h3>
 						<div class="yy-grid" id="datos_tutor">
 							<div class="yy-field">
 								<label for="nombre_tutor">Nombre <span class="req" aria-hidden="true">*</span></label>
@@ -117,9 +117,9 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 						</div>
 						<div class="yy-grid" id="doc_tutor">
 							<div class="yy-field">
-								<label for="tipo_doc_tutor">Tipo de documentación <span class="req" aria-hidden="true">*</span></label>
+								<label for="tipo_doc_tutor">Tipo de documento <span class="req" aria-hidden="true">*</span></label>
 								<select id="tipo_doc_tutor" name="tipo_doc_tutor" data-tutor-required>
-									<option value="">Selección de documentación</option>
+									<option value="">Selecciona un documento</option>
 									<option value="1">DNI</option>
 									<option value="2">CE</option>
 									<option value="3">Pasaporte</option>
@@ -161,10 +161,10 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 						</div>
 						<div class="yy-field">
 							<label for="nro_pedido">N.º de pedido <span class="req" aria-hidden="true">*</span></label>
-							<input type="text" id="nro_pedido" name="nro_pedido" class="required" placeholder="N° Pedido" required>
+							<input type="text" id="nro_pedido" name="nro_pedido" class="required" placeholder="N.º de pedido" required>
 						</div>
 						<div class="yy-field">
-							<label for="fch_reclamo">Fecha de reclamación / queja</label>
+							<label for="fch_reclamo">Fecha de reclamación o queja</label>
 							<input type="text" id="fch_reclamo" name="fch_reclamo" value="" readonly>
 						</div>
 						<div class="yy-field">
@@ -172,7 +172,7 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 							<input type="text" id="proveedor" name="proveedor" placeholder="Proveedor">
 						</div>
 						<div class="yy-field">
-							<label for="monto_reclamado">Monto reclamado (S/.)</label>
+							<label for="monto_reclamado">Monto reclamado (S/)</label>
 							<input type="text" id="monto_reclamado" name="monto_reclamado" placeholder="Monto reclamado" inputmode="decimal">
 						</div>
 						<div class="yy-field yy-span-2">
@@ -192,7 +192,7 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 							<input type="date" id="fch_vencimiento" name="fch_vencimiento">
 						</div>
 						<div class="yy-field yy-span-2">
-							<label for="detalle_reclamo">Detalle de la reclamación / queja, según lo indicado por el cliente <span class="req" aria-hidden="true">*</span></label>
+							<label for="detalle_reclamo">Detalle de la reclamación o queja, según lo indicado por el cliente <span class="req" aria-hidden="true">*</span></label>
 							<textarea id="detalle_reclamo" name="detalle_reclamo" class="required" rows="5" required></textarea>
 						</div>
 						<div class="yy-field yy-span-2">
@@ -220,8 +220,8 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 
 					<ul class="yy-legal">
 						<li>La formulación del reclamo no excluye el recurso a otros medios de resolución de controversias ni es un requisito previo para presentar una denuncia ante el Indecopi.</li>
-						<li>El proveedor debe responder a la reclamación en un plazo no superior a quince (15) días naturales, pudiendo ampliar el plazo hasta quince días.</li>
-						<li>Con la firma de este documento, el cliente autoriza a ser contactado después de la tramitación de la reclamación para evaluar la calidad y satisfacción del proceso de atención de reclamaciones.</li>
+						<li>El proveedor debe responder a la reclamación en un plazo no superior a quince (15) días naturales, pudiendo ampliar este plazo por otros quince (15) días naturales.</li>
+						<li>Al enviar este formulario, el cliente autoriza ser contactado después de la tramitación de la reclamación para evaluar la calidad y satisfacción del proceso de atención de reclamaciones.</li>
 					</ul>
 
 					<div class="yy-actions">
@@ -236,9 +236,9 @@ body_class: wp-singular page-template page-template-elementor_canvas page page-i
 				<h2>Antes de enviar</h2>
 				<dl>
 					<dt><span class="yy-tag">1</span> Reclamación</dt>
-					<dd>Desacuerdo relacionado con productos y / o servicios.</dd>
+					<dd>Desacuerdo relacionado con productos o servicios.</dd>
 					<dt><span class="yy-tag">2</span> Queja</dt>
-					<dd>Desacuerdo no relacionado con productos y / o servicios; o, malestar o insatisfacción con la atención al público.</dd>
+					<dd>Desacuerdo no relacionado con productos o servicios; o, malestar o insatisfacción con la atención al público.</dd>
 				</dl>
 				<p class="yy-aside-deadline"><strong>Plazo de respuesta:</strong> hasta 15 días naturales.</p>
 			</div>
@@ -367,7 +367,7 @@ jQuery.uiBackCompat = true;
 </script>
 <script id="jquery-ui-core-js" src="{{root}}assets/site/wp-includes/js/jquery/ui/core.min.js"></script>
 <script id="elementor-frontend-js-before">
-var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartir en Facebook","shareOnX":"Compartir en X","pinIt":"Pinear","download":"Descargar","downloadImage":"Descargar imagen","fullscreen":"Pantalla completa","zoom":"Zoom","share":"Compartir","playVideo":"Reproducir v\u00eddeo","previous":"Anterior","next":"Siguiente","close":"Cerrar","a11yCarouselPrevSlideMessage":"Diapositiva anterior","a11yCarouselNextSlideMessage":"Diapositiva siguiente","a11yCarouselFirstSlideMessage":"Esta es la primera diapositiva","a11yCarouselLastSlideMessage":"Esta es la \u00faltima diapositiva","a11yCarouselPaginationBulletMessage":"Ir a la diapositiva"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"M\u00f3vil vertical","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"M\u00f3vil horizontal","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tableta vertical","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tableta horizontal","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Port\u00e1til","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Pantalla grande","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.4.1","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"hello-theme-header-footer":true,"e_mcp_revision_snapshots":true,"nested-elements":true,"import-export-customization":true},"urls":{"assets":"{{root}}assets\/site\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"#","uploadUrl":"{{root}}assets\/site\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"87e4879c4f","atomicFormsSendForm":"dc0d111be5"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":56,"title":"Contacto%20%E2%80%93%20Corporaraci%C3%B3n%20Yanayacu","excerpt":"","featuredImage":false}};
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartir en Facebook","shareOnX":"Compartir en X","pinIt":"Pinear","download":"Descargar","downloadImage":"Descargar imagen","fullscreen":"Pantalla completa","zoom":"Zoom","share":"Compartir","playVideo":"Reproducir v\u00eddeo","previous":"Anterior","next":"Siguiente","close":"Cerrar","a11yCarouselPrevSlideMessage":"Diapositiva anterior","a11yCarouselNextSlideMessage":"Diapositiva siguiente","a11yCarouselFirstSlideMessage":"Esta es la primera diapositiva","a11yCarouselLastSlideMessage":"Esta es la \u00faltima diapositiva","a11yCarouselPaginationBulletMessage":"Ir a la diapositiva"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"M\u00f3vil vertical","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"M\u00f3vil horizontal","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tableta vertical","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tableta horizontal","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Port\u00e1til","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Pantalla grande","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.4.1","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"hello-theme-header-footer":true,"e_mcp_revision_snapshots":true,"nested-elements":true,"import-export-customization":true},"urls":{"assets":"{{root}}assets\/site\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"#","uploadUrl":"{{root}}assets\/site\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"87e4879c4f","atomicFormsSendForm":"dc0d111be5"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":56,"title":"{{title_uri}}","excerpt":"","featuredImage":false}};
 //# sourceURL=elementor-frontend-js-before
 </script>
 <script id="elementor-frontend-js" src="{{root}}assets/site/wp-content/plugins/elementor/assets/js/frontend.min.js"></script>

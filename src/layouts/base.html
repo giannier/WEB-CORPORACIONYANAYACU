@@ -4,8 +4,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{title}}</title>
-	<link rel="icon" href="{{root}}assets/site/wp-content/uploads/2026/02/yanayacu_web.png">
-	<!-- Page head imported from WordPress/Elementor (stylesheets, kit CSS, jQuery). Slot "head" of the page. -->
+{{#if description}}	<meta name="description" content="{{description}}">
+{{/if}}{{#if noindex}}	<meta name="robots" content="noindex, follow">
+{{/if}}{{#if canonical}}	<link rel="canonical" href="{{canonical}}">
+{{/if}}	<meta property="og:locale" content="es_PE">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="{{site.name}}">
+	<meta property="og:title" content="{{title_attr}}">
+{{#if description}}	<meta property="og:description" content="{{description}}">
+{{/if}}{{#if canonical}}	<meta property="og:url" content="{{canonical}}">
+{{/if}}{{#if og_image}}	<meta property="og:image" content="{{og_image}}">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="{{site.name}}: servicios de agro, construcción y servicios generales">
+{{/if}}	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{title_attr}}">
+{{#if description}}	<meta name="twitter:description" content="{{description}}">
+{{/if}}{{#if og_image}}	<meta name="twitter:image" content="{{og_image}}">
+{{/if}}	<link rel="icon" href="{{root}}assets/site/wp-content/uploads/2026/02/yanayacu_web.png">
+{{#if site.ga4_id}}	<!-- Google Analytics 4 (set "ga4_id" in src/site.json to enable) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{site.ga4_id}}"></script>
+	<script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', '{{site.ga4_id}}');</script>
+{{/if}}	<!-- Page head imported from WordPress/Elementor (stylesheets, kit CSS, jQuery). Slot "head" of the page. -->
 {{head}}
 	<!-- Your own overrides: edit src/assets/css/custom.css -->
 	<link rel="stylesheet" href="{{root}}assets/css/custom.css">

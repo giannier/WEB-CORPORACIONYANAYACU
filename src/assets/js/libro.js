@@ -1,6 +1,6 @@
 /**
  * Libro de Reclamaciones page behaviour (no backend, vanilla JS).
- * - Fills "Fecha de reclamación / queja" with today's date.
+ * - Fills "Fecha de reclamación o queja" with today's date.
  * - Provincia / Distrito were filled through WordPress admin-ajax. Without a backend the selects are empty,
  *   so they are swapped for text inputs (same id / name / required).
  * - Shows the guardian block only when "¿Eres menor de edad?" is "Sí" and makes its fields required.

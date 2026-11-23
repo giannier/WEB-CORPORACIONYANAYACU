@@ -35,6 +35,16 @@ Page URLs: `src/pages/nosotros.html` -> `dist/nosotros/index.html`. `{{root}}` i
 - TikTok: the header/footer link is `https://www.tiktok.com/@somoscorporacionyanayacu` (taken from the original site).
 - Your own styles: `src/assets/css/custom.css`.
 
+## SEO
+
+- Per page, set `title` (50-60 characters, keyword first, brand last) and `description` (120-160 characters) in the front matter. `base.html` renders `<title>`, meta description, canonical, Open Graph and Twitter tags from them.
+- `src/site.json`: `url` (production origin, used for canonical, sitemap and JSON-LD), `og_image` (1200x630, `assets/img/og-image.jpg`) and `ga4_id`. When `ga4_id` is set (for example `G-XXXXXXXXXX`) the GA4 snippet is added to every page; while it is empty nothing is loaded.
+- `dist/sitemap.xml` is generated on every build from the pages (pages with `noindex: true` are left out). `robots.txt` points to it.
+- Front matter `noindex: true` adds `<meta name="robots" content="noindex, follow">` and removes the canonical. `output: 404.html` writes a root-level file instead of `<path>/index.html` (it uses root-absolute paths because it is served from any URL).
+- `src/pages/404.html` is the branded 404 page; `.htaccess` serves it with `ErrorDocument 404`.
+- The home page carries `Organization` + `LocalBusiness` JSON-LD in its `head` slot. Keep it in sync with the visible address, phone and hours.
+- One `<h1>` per page. Heavy images are WebP (max 1920 px); keep new images under about 150 KB.
+
 ## Forms (pending)
 
 Contact, newsletter and Libro de Reclamaciones were WordPress/PHP forms. There is no backend here. `assets/js/forms.js` intercepts every `<form>` and POSTs it to the URL configured in `src/site.json` (`forms.contact`, `forms.newsletter`, `forms.libro`).
@@ -56,6 +66,8 @@ Contact, newsletter and Libro de Reclamaciones were WordPress/PHP forms. There i
 3. cPanel > Git Version Control > Manage > Pull or Deploy > *Update from Remote*, then *Deploy HEAD Commit*.
 
 `.htaccess` and `robots.txt` live in `src/public/` and end up in the root of `dist/`. Enable the HTTPS redirect in `.htaccess` once SSL is active, and fill `url` in `src/site.json` for canonical links.
+
+The repo is cloned inside `public_html` (cPanel Git Version Control), so `src/`, `dist/`, `tools/`, `build.mjs` and `package.json` sit next to the published site. `src/public/.htaccess` returns 404 for those paths, redirects `http://` and `www` to `https://corporacionyanayacu.com` in a single 301 and keeps `/.well-known/` open for AutoSSL. Do not remove those rules. Cloning the repo outside `public_html` (for example `repositories/WEB-CORPORACIONYANAYACU`) is cleaner and avoids relying on them.
 
 Warning: if `public_html` still holds the old WordPress install, back it up first. Deploying copies over it and does not delete the old files.
 
